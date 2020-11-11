@@ -1,0 +1,23 @@
+﻿@using Lab_4.Models 
+@model Student 
+@{
+    ViewBag.Title = "Інформація про студента";
+}
+<fieldset>
+    <legend>Інформація про студента</legend>
+    <div class="display-label"><b>Ім'я</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="display-label"><b>Прізвище</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Surname)
+    </div>
+    <div class="display-label"><b>Курси</b></div>
+    <ul>
+        @foreach (Course c in Model.Courses)
+        {
+            <li>@c.Name</li>
+        }
+    </ul>
+</fieldset>

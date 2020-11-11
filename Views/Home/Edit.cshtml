@@ -1,0 +1,30 @@
+﻿@using Lab_4.Models
+@model Student
+@{
+    ViewBag.Title = "Edit";
+}
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Студент</legend>
+        @Html.HiddenFor(model => model.Id)
+        <div class="editor-label"><b>Ім'я</b></div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+        </div>
+        <div class="editor-label"><b>Прізвище</b></div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Surname)
+        </div>
+        <div class="editor-label"><b>Курси</b></div>
+        @foreach (Course c in ViewBag.Courses)
+        {
+            <input type="checkbox" name="selectedCourses" value="@c.Id"
+                   @(Model.Courses.Contains(c) ? "checked=\"checked\"" : "") />@c.Name
+                <br />
+            }
+        <p>
+            <input type="submit" value="Зберегти" />
+        </p>
+    </fieldset>
+}

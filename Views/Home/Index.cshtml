@@ -1,0 +1,27 @@
+﻿@model IEnumerable <Lab_4.Models.Student > 
+@{
+    ViewBag.Title = "Університет"; 
+}
+<h2>Cтуденти</h2>
+<td><p><a href="/Home/Create/">Додати стулента</a></p></td>
+<table>
+    <tr>
+        <th>Ім'яㅤ</th>
+        <th>ㅤПрізвищеㅤ</th>
+        <th></th>
+    </tr> 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.ActionLink("Детальніше", "Details", new { id = item.Id }) | @Html.ActionLink("Редагувати", "Edit", new { id = item.Id }) | @Html.ActionLink("Відрахувати", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

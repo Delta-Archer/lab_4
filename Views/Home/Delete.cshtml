@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Відрахувати студента";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+@model Lab_4.Models.Student
+    <h2>Відрахувати студента</h2>
+    <dl>
+        <dt><b>Ім'я</b></dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt><b>Прізвище</b></dt>
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+    </dl> 
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Відрахуати" />
+}
